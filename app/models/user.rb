@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :characters, dependent: :destroy
 
-  mount_uploader :avatar, AvatarUploader
+  
 end

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326131602) do
+ActiveRecord::Schema.define(version: 20150326144728) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "avatar"
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150326131602) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
