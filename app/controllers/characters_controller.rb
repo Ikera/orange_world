@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.json
   def index
-    @characters = Character.where(user_id: current_user)
+    @characters = Character.where(user_id: current_user).page(params[:page]).per(4)
   end
 
   # GET /characters/1

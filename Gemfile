@@ -10,6 +10,8 @@ gem 'carrierwave', '~> 0.10.0'
 
 gem 'mini_magick', '~> 4.2.0'
 
+gem 'kaminari', '~> 0.16.3'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
