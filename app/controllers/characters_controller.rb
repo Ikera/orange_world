@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  
   # GET /characters
   # GET /characters.json
   def index
@@ -14,7 +15,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
-    @character = Character.new
+    @character = current_user.characters.build
   end
 
   # GET /characters/1/edit
@@ -24,7 +25,7 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.json
   def create
-    @character = Character.new(character_params)
+    @character = current_user.characters.build(character_params)
 
     respond_to do |format|
       if @character.save
