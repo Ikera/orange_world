@@ -7,6 +7,9 @@ gem 'rails', '4.2.0'
 gem 'devise', '~> 3.4.1'
 
 gem 'carrierwave', '~> 0.10.0'
+
+gem 'mini_magick', '~> 4.2.0'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

@@ -13,6 +13,7 @@
   <tbody>
     <% @characters.each do |character| %>
       <tr>
+        <td><%= link_to(image_tag character.avatar.url(:thumb) ) if character.avatar? %></td>
         <td><%= character.name %></td>
         <td><%= link_to 'Show', character %></td>
         <td><%= link_to 'Edit', edit_character_path(character) %></td>

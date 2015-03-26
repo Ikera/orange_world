@@ -5,7 +5,7 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= image_tag(@character.avatar_url, :width => 100) if @character.avatar.present? %>
+  <%= image_tag(@character.avatar_url, :width => 200) if @character.avatar.present? %>
 </p>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
