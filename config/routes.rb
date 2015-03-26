@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :characters
 
+  authenticated :user do
+    root "characters#index", as: "authenticated_root"
+  end
+
   root "welcome#info"
 
   # The priority is based upon order of creation: first created -> highest priority.
