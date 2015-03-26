@@ -1,11 +1,11 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  
+
   # GET /characters
   # GET /characters.json
   def index
-    @characters = Character.all
+    @characters = Character.where(user_id: current_user)
   end
 
   # GET /characters/1
