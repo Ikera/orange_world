@@ -12,3 +12,8 @@
   <strong>Icon:</strong>
   <%= image_tag skill.icon_url(:thumb) if skill.icon.present? %>
 </p>
+
+<p>
+<%= link_to 'Destroy skill', [skill.character, skill], :confirm => 'Are you sure?',
+    :method => :delete %>
+</p>
