@@ -1,0 +1,14 @@
+<p>
+<b>Name:</b>
+<%= skill.name %>
+</p>
+
+<p>
+<b>Value:</b>
+<%= skill.value %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= image_tag skill.icon_url(:thumb) if skill.icon.present? %>
+</p>
