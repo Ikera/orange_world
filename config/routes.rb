@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/info'
 
-  resources :characters
+  resources :characters do
+    resources :skills
+  end
 
   authenticated :user do
     root "characters#index", as: "authenticated_root"
