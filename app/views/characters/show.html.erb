@@ -8,10 +8,53 @@
   <%= image_tag(@character.avatar_url, :width => 200) if @character.avatar.present? %>
 </p>
 
+<h2>Skills</h2>
+<% @character.skills.each do |skill| %>
+
+<p>
+<b>Name:</b>
+<%= skill.name %>
+</p>
+
+<p>
+<b>Value:</b>
+<%= skill.value %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= image_tag skill.icon_url(:thumb) if skill.icon.present? %>
+</p>
+
+<% end %>
+
+<h2>Add your Skills</h2>
+<%= form_for ([@character, @character.skills.build]), :html => {:mulitipart => true} do |f| %>
+<div class="field">
+<%= f.label :name %><br />
+<%= f.text_field :name %>
+</div>
+<div class="field">
+<%= f.label :value %><br />
+<%= f.number_field :value %>
+</div>
+<div class="field">
+<%= f.label :icon %><br />
+<%= f.file_field :icon %>
+</div>
+
+<div class="actions">
+<%= f.submit %>
+</div>
+
+
+  
+<% end %>
+
 <p>
   <strong>Submitted by </strong>
   <%= @character.user.username %>
 </p>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+<%= link_to 'List of characters', characters_path %>
