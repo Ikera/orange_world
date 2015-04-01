@@ -1,4 +1,4 @@
-<%= form_for ([@character, @character.skills.build]), :html => {:mulitipart => true} do |f| %>
+<%= form_for ([@character, @character.skills.build]), remote: true, :html => {:mulitipart => true} do |f| %>
 
 	<div class="field">
 	  <%= f.label :name %><br />

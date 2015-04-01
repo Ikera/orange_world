@@ -15,6 +15,6 @@
 
 <p>
   <%= link_to 'Edit', edit_character_skill_path(skill.character, skill) %>
-  <%= link_to 'Destroy', [skill.character, skill], :confirm => 'Are you sure?',
+  <%= link_to 'Destroy', [skill.character, skill], remote: true, :confirm => 'Are you sure?',
     :method => :delete %>
 </p>

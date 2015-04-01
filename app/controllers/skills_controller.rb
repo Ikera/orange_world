@@ -3,14 +3,24 @@ class SkillsController < ApplicationController
   def create
     @character = Character.find(params[:character_id])
     @skill = @character.skills.create(skill_params)
-    redirect_to character_path(@character)
+
+    respond_to do |format|
+      format.html {redirect_to character_path(@character)}
+      format.js
+    end
+    
   end
 
   def destroy
     @character = Character.find(params[:character_id])
     @skill = @character.skills.find(params[:id])
     @skill.destroy
-    redirect_to character_path(@character)
+
+    respond_to do |format|
+      format.html {redirect_to character_path(@character)}
+      format.js
+    end
+    
   end
 
   def edit
