@@ -1,12 +1,12 @@
 class CharactersController < ApplicationController
+  before_action :all_tasks, only: [:index, :create]
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
   # GET /characters
   # GET /characters.json
-  def index
-    @characters = Character.where(user_id: current_user).page(params[:page]).per(4)
-  end
+  # def index
+  # end
 
   # GET /characters/1
   # GET /characters/1.json
@@ -30,6 +30,7 @@ class CharactersController < ApplicationController
     respond_to do |format|
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @character }
       else
         format.html { render :new }
@@ -63,6 +64,10 @@ class CharactersController < ApplicationController
   end
 
   private
+
+    def all_task
+      @characters = Character.where(user_id: current_user).page(params[:page]).per(4)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_character
       @character = Character.find(params[:id])

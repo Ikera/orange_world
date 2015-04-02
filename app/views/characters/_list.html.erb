@@ -1,0 +1,24 @@
+<h1>Listing Characters</h1>
+
+<%= paginate @characters %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Current characters</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><strong><%= character.name %></strong></td>
+        <td><%= link_to(image_tag character.avatar.url(:thumb) ) if character.avatar? %></td>
+        <td><%= link_to 'Show', character, class: "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_character_path(character), class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
