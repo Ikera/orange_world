@@ -2,6 +2,7 @@
   <ol id="list">
     <%= render partial: 'list' %>
   </ol>
+  <div><%= paginate @characters %></div>
   <br>
   <div class="container">
   <%= link_to 'New Character', new_character_path, remote: true, class: "btn btn-default" %>
