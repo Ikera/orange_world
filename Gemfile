@@ -47,11 +47,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+
+  gem 'rspec-rails', '~> 3.2.1'
+  gem 'factory_girl_rails', '~> 4.5.0'	
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem "faker", "~> 1.4.3"
+  gem 'capybara', '~> 2.4.4'
+  gem 'database_cleaner', '~> 1.4.1' 
+
+  gem "launchy", "~> 2.4.3"
+  gem "selenium-webdriver", "~> 2.45.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
