@@ -2,6 +2,7 @@ class CharactersController < ApplicationController
   before_action :all_tasks, only: [:index, :create]
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /characters
   # GET /characters.json
@@ -76,5 +77,10 @@ class CharactersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
       params.require(:character).permit(:name, :avatar)
+    end
+
+     def invalid_cart
+      logger.error "Attempt to access invalid cart #{params[:id]}"
+      redirect_to root_path, notice: 'Invalid cart'
     end
 end
