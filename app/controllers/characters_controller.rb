@@ -65,7 +65,7 @@ class CharactersController < ApplicationController
 
   private
 
-    def all_task
+    def all_tasks
       @characters = Character.where(user_id: current_user).page(params[:page]).per(4)
     end
     # Use callbacks to share common setup or constraints between actions.
