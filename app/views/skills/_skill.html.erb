@@ -1,20 +1,22 @@
-<p>
-<b>Name:</b>
-<%= skill.name %>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Icon</th>
+      <th>Name</th>
+      <th>Value</th>  
+    </tr>
+  </thead> 
+  <tbody>
+    <tr>
+      <td><%= image_tag skill.icon_url(:thumb) if skill.icon.present? %></td>
+      <td><%= skill.name %></td> 
+      <td><%= skill.value %></td>        
+    </tr>
+   </tbody>
+</table>
 
-<p>
-<b>Value:</b>
-<%= skill.value %>
-</p>
-
-<p>
-  <strong>Icon:</strong>
-  <%= image_tag skill.icon_url(:thumb) if skill.icon.present? %>
-</p>
-
-<p>
-  <%= link_to 'Edit', edit_character_skill_path(skill.character, skill) %>
-  <%= link_to 'Destroy', [skill.character, skill], remote: true, :confirm => 'Are you sure?',
-    :method => :delete %>
-</p>
+<div>
+  <%= link_to 'Edit', edit_character_skill_path(skill.character, skill), id: "edit_skill", remote: true, class: "btn btn-sm btn-default" %>
+  <%= link_to 'Destroy', [skill.character, skill], remote: true,
+      :method => :delete, class: "btn btn-sm btn-default" %>
+</div>

@@ -32,11 +32,15 @@ class SkillsController < ApplicationController
     @character = Character.find(params[:character_id])
     @skill = @character.skills.find(params[:id])
 
+    respond_to do |format|
      if @skill.update(skill_params)
-       redirect_to character_path(@character)
+       format.html {redirect_to character_path(@character)}
+       format.js
      else
-       render 'edit'
-     end
+       format.html {render 'edit'}
+       format.js
+     end   
+    end
   end
 
   private

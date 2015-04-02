@@ -1,26 +1,29 @@
-<p>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</p>
+<div class="jumbotron">
 
-<p>
-  <%= image_tag(@character.avatar_url, :width => 200) if @character.avatar.present? %>
-</p>
+	<div class="row">
 
-<h2>Skills</h2>
-<ol id="skills">
-<%= render @character.skills %>
-</ol>
+		<div class="col-lg-4" class: "btn btn-default" id="characters">
+			<%= render @character %>
+			<br/>
+			
+			<%= link_to 'Edit', edit_character_path(@character), class: "btn btn-default" %> 
+			<%= link_to 'Back', characters_path, class: "btn btn-default" %>
+		</div>
 
-<h2>Add your Skills</h2>
-<ol id="form">
-<%= render "skills/form" %>
-</ol>
+	    <div class="col-lg-4" id="skills">
+			<h2>Skills</h2>
+			<%= render @character.skills %>
+	    </div>
 
-<p>
-  <strong>Submitted by </strong>
-  <%= @character.user.username %>
-</p>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'List of characters', characters_path %>
+		<div class="col-lg-4" id="form">
+			<h2>Add your skills</h2>
+		    <%= render "skills/form" %>
+		</div>
+	</div>
+	<p>
+	  <strong>Submitted by </strong>
+	  <%= @character.user.username %>
+	</p>
+</div>
+

@@ -1,0 +1,8 @@
+<h2>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</h2>
+
+<p>
+  <%= image_tag(@character.avatar_url, :width => 200) if @character.avatar.present? %>
+</p>
