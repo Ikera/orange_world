@@ -11,19 +11,20 @@
 		</div>
 
 	    <div class="col-lg-4" id="skills">
-			<h2>Skills</h2>
+			<h3><b>Skills</b></h3>
 			<%= render @character.skills %>
 	    </div>
 
 
 		<div class="col-lg-4" id="form">
-			<h2>Add your skills</h2>
+			<h3><b> Add skill </b></h3>
 		    <%= render "skills/form" %>
 		</div>
 	</div>
+    </br>
 	<p>
-	  <strong>Submitted by </strong>
-	  <%= @character.user.username %>
+	  Created by 
+	  <strong><%= @character.user.username %></strong>
 	</p>
 </div>
 

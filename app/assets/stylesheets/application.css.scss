@@ -16,3 +16,17 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap/theme";
+
+
+
+h2 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.log{
+  text-align: center;
+}
