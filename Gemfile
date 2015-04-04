@@ -58,6 +58,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'cucumber-rails', require: false
   gem "faker", "~> 1.4.3"
   gem 'capybara', '~> 2.4.4'
   gem 'database_cleaner', '~> 1.4.1' 
