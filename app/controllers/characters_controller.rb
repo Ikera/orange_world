@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :all_tasks, only: [:index, :create]
+  before_action :all_tasks, only: [:index, :create, :destroy]
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
@@ -60,6 +60,7 @@ class CharactersController < ApplicationController
     @character.destroy
     respond_to do |format|
       format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
+      format.js
       format.json { head :no_content }
     end
   end
