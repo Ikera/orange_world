@@ -1,14 +1,17 @@
 <% provide(:title, 'Characters') %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+	<ol id="list">
+	  <%= render partial: 'list' %>
+	</ol>
 
-<div class="jumbotron"> 
-  <ol id="list">
-    <%= render partial: 'list' %>
-  </ol>
-  <div><%= paginate @characters %></div>
-  <br>
-  <div class="container">
-  <%= link_to 'New Character', new_character_path, remote: true, class: "btn btn-default" %>
-  <div id="task-form" style="display:none;"></div>
-  </div>
+	<div><%= paginate @characters %></div>
+	<br>
+	
+	<div class="container">
+	  <%= link_to 'New Character', new_character_path, remote: true, class: "btn btn-default" %>
+	  <div id="task-form" style="display:none;"></div>
+	</div>
+ </div>
 </div>
 

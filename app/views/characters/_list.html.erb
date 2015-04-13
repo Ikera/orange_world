@@ -12,11 +12,11 @@
     <% @characters.each do |character| %>
       <tr>
         <td><strong><h3><%= character.name %></h3></strong></td>
-        <td><%= link_to(image_tag character.avatar.url(:thumb) ) if character.avatar? %></td>
+        <td><%= link_to(image_tag character.avatar.url(:thumb) ) if character.avatar? %></td>      
         <td>
-          <%= link_to 'Show', character, class: "btn btn-default" %>
-          <%= link_to 'Edit', edit_character_path(character), class: "btn btn-default" %>
-          <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+          <%= link_to 'Show', character, class: "btn btn-sm btn-default" %>
+          <%= link_to 'Edit', edit_character_path(character), class: "btn btn-sm btn-default" %>
+          <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
         </td>
       </tr>
     <% end %>
