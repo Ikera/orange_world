@@ -2,6 +2,7 @@ class CharactersController < ApplicationController
   before_action :all_tasks, only: [:index, :create, :destroy]
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_action :authorized_user, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /characters
@@ -67,6 +68,11 @@ class CharactersController < ApplicationController
 
   private
 
+    def authorized_user
+      @character = current_user.characters.find_by(id: params[:id])
+      redirect_to characters_path, notice: "Not authorized to edit this character!" if @character.nil?
+    end
+
     def all_tasks
       @characters = Character.where(user_id: current_user).page(params[:page]).per(4)
     end
@@ -82,6 +88,6 @@ class CharactersController < ApplicationController
 
      def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to root_path, notice: 'Invalid cart'
+      redirect_to root_path, notice: 'Invalid cart!'
     end
 end
