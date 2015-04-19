@@ -59,6 +59,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'shoulda-matchers', '~> 2.8.0'
   gem 'cucumber-rails', require: false
   gem "faker", "~> 1.4.3"
   gem 'capybara', '~> 2.4.4'
