@@ -21,7 +21,7 @@ class SkillsController < ApplicationController
   private
 
   def set_character
-    @character = Character.find(params[:character_id])
+    @character = current_user.characters.find(params[:character_id])
   end
 
   def set_skill

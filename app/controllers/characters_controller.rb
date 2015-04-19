@@ -57,7 +57,7 @@ class CharactersController < ApplicationController
     end
     
     def set_character
-      @character = Character.find(params[:id])
+      @character = current_user.characters.find(params[:id])
     end
 
     def character_params
