@@ -11,6 +11,7 @@ describe Skill do
 	it { should validate_presence_of(:icon)}
 	it { should belong_to(:character) }
 	it { should_not allow_value('6').for(:value) }
+	# it { should_not allow_value('16').for(:value) }
 	it { should_not allow_value('101').for(:value) }
 	it { should allow_value('10').for(:value) }
 end
