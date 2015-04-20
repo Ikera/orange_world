@@ -4,5 +4,14 @@ class Skill < ActiveRecord::Base
   validates :icon, presence: true
   belongs_to :character
   mount_uploader :icon, IconUploader
+  validate :fix_value 
+
+  private
+
+  def fix_value
+    if (value.to_i % 10 != 0)
+    	errors.add(:value, "Try again!")
+    end
+  end
  
 end
