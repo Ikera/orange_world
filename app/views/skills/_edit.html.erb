@@ -1,7 +1,9 @@
 <h3>Edit your skill</h3>
 
 <%= form_for ([@character, @skill]), remote: true, :html => {:mulitipart => true} do |f| %>
-
+     
+    <%= render 'shared/error_messages', object: f.object %>
+	 
 	<div class="form-group">
 	  <%= f.label :name %><br />
 	  <%= f.text_field :name, class: "form-control" %>

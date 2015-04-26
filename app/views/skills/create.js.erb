@@ -1,2 +1,8 @@
-$('#skills').html("<%= j render @character.skills %>");
-$('#skills_name').val("");
+<% if @skill.errors.any? %>
+    alert("Error! Your fields must be filled.")
+<% else %>
+	$('#skills').html("<%= j render @character.skills %>");
+	$('#skill_count').html("You have <%= pluralize(@character.skills.size, "skill")%>")
+	$('#skill_name').val("");
+	$('#skill_value').val("");
+<% end %>

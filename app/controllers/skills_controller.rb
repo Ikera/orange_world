@@ -4,7 +4,16 @@ class SkillsController < ApplicationController
   respond_to :js
 
   def create
-    @skill = @character.skills.create(skill_params)
+    @skill = @character.skills.build(skill_params)
+    
+
+    respond_to do |format|
+      if @skill.save     
+        format.js
+      else
+        format.js 
+      end
+    end
   end
 
   def destroy

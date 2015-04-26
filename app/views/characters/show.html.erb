@@ -1,23 +1,26 @@
 <% provide(:title, "#{@character.name}") %>
 
 <div class="row">
-  <div class="col-lg-4" class: "btn btn-default" id="characters">
-	<%= render @character %>
-	<br/>
-	<%= link_to 'Edit', edit_character_path(@character), class: "btn btn-default" %> 
-	<%= link_to 'Back', characters_path, class: "btn btn-default" %>
+  <div class="col-lg-4" id="characters">
+  	<%= render @character %>
+    <h3 id="skill_count">You have <%= pluralize(@character.skills.size, "skill")%></h3>
+  	<br/>
+  	<%= link_to 'Edit', edit_character_path(@character), class: "btn btn-default" %> 
+  	<%= link_to 'Back', characters_path, class: "btn btn-default" %>
   </div>
 
   <div class="col-lg-4" id="skills">
-	<h3><b><%= @character.name %> skills</b></h3>
-	<%= render @character.skills %>
+  	<h3><b><%= @character.name %> skills</b></h3>
+  	<%= render @character.skills %>
   </div>
 
   <div class="col-lg-4" id="form">
-	<h3><b> Add skill </b></h3>
+	  <h3><b> Add skill </b></h3>
     <%= render "skills/form" %>
   </div>
+ 
 </div>
+
 </br>
 <p>
   Created by 

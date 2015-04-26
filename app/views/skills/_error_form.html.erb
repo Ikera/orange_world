@@ -1,6 +1,6 @@
+
 <%= form_for ([@character, @character.skills.build]), remote: true, :html => {:mulitipart => true} do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-    
 	<div class="form-group">
 	  <%= f.label :name %><br />
 	  <%= f.text_field :name, class: "form-control" %>

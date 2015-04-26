@@ -24,6 +24,8 @@ class CharactersController < ApplicationController
     respond_to do |format|
       if @character.save
         format.js
+      else
+        format.js
       end
     end
   end

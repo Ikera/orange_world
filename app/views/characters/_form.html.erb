@@ -2,17 +2,7 @@
   <div class="col-md-3">
 
   <%= form_for @character, :html => {:multipart => true}, remote: true do |f| %>
-    <% if @character.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
-
-        <ul>
-        <% @character.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
       <%= f.label :name %><br>

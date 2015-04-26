@@ -1,1 +1,7 @@
-$('#list').html("<%= j render(partial: 'list') %>");
+<% if @character.errors.any? %>
+  $('#task-form').html("<%= j render(partial: 'form')%>");
+<% else %>
+  $('#list').html("<%= j render(partial: 'list') %>");
+  $('#character_name').val('');
+  $('#error_explanation').html('');
+<% end %>
