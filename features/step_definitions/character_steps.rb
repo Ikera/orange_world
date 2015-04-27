@@ -64,7 +64,9 @@ end
 
 When(/^I click on Avatar$/) do
  # document.getElementById("character_avatar")
-  attach_file('Avatar', File.join(Rails.root, 'public', 'uploads', 'character', 'avatar', '1', 'thumb_warrior.jpg'))
+  file_to_upload = "C:/Users/Jelena/test_app/orange_world/features/support/images/thumb_warrior.jpg"
+  #File.join(Rails.root, 'public', 'uploads', 'character', 'avatar', '1', 'thumb_warrior.jpg')
+  attach_file('Avatar', file_to_upload)
 end
 
 When(/^I swich to popup$/) do
