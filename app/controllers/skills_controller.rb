@@ -6,13 +6,10 @@ class SkillsController < ApplicationController
   def create
     @skill = @character.skills.build(skill_params)
     
-
-    respond_to do |format|
-      if @skill.save     
+    @skill.save 
+    
+    respond_to do |format|   
         format.js
-      else
-        format.js 
-      end
     end
   end
 

@@ -21,12 +21,10 @@ class CharactersController < ApplicationController
   def create
     @character = current_user.characters.build(character_params)
 
+    @character.save
+    
     respond_to do |format|
-      if @character.save
         format.js
-      else
-        format.js
-      end
     end
   end
 
