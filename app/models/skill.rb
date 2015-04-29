@@ -4,14 +4,14 @@ class Skill < ActiveRecord::Base
   validates :icon, presence: true
   belongs_to :character
   mount_uploader :icon, IconUploader
-  validate :fix_value 
+  validate :validates_value_divisibility_by_10 
 
   private
 
-  def fix_value
+  def validates_value_divisibility_by_10
     if (value.to_i % 10 != 0)
-    	errors.add(:value, "Try again!")
+    	errors.add(:value, "Your value need to be divisible by 10! Please try again.")
     end
   end
- 
+  plea
 end

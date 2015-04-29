@@ -21,4 +21,4 @@ Feature: Characters
     And I click on Avatar
     And I swich to popup
     And I click Submit button
-    Then I can see Error message
+    Then I can see "Warrior"

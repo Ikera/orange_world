@@ -64,8 +64,9 @@ end
 
 When(/^I click on Avatar$/) do
  # document.getElementById("character_avatar")
-  file_to_upload = "C:/Users/Jelena/test_app/orange_world/features/support/images/thumb_warrior.jpg"
-  #File.join(Rails.root, 'public', 'uploads', 'character', 'avatar', '1', 'thumb_warrior.jpg')
+  file_to_upload = File.join(Rails.root, 'features', 'support', 'images', 'thumb_warrior.jpg')
+  "C:/Users/Jelena/test_app/orange_world/features/support/images/thumb_warrior.jpg"
+  
   attach_file('Avatar', file_to_upload)
 end
 
@@ -78,6 +79,6 @@ When(/^I click Submit button$/) do
   click_button('Submit')
 end
 
-Then(/^I can see Error message$/) do
-  page.should have_content("Avatar can't be blank")
+Then(/^I can see (.*?)$/) do |text|
+  page.should have_content(text)
 end
