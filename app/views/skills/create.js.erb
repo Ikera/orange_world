@@ -1,5 +1,5 @@
 <% if @skill.errors.any? %>
-    alert("Error! Your fields must be filled.")
+    alert("All your fields must be filled! Please try again.")
 <% else %>
 	$('#skills').html("<%= j render @character.skills %>");
 	$('#skill_count').html("You have <%= pluralize(@character.skills.size, "skill")%>")

@@ -13,5 +13,4 @@ class Skill < ActiveRecord::Base
     	errors.add(:value, "Your value need to be divisible by 10! Please try again.")
     end
   end
-  plea
 end
