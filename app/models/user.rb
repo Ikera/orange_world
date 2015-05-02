@@ -5,6 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :characters, dependent: :destroy
-
-  
+  belongs_to :admin 
 end
