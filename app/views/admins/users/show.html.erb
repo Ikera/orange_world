@@ -1,0 +1,22 @@
+<h2><%= @user.username %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Character name</th>
+      <th>Character avatar</th>
+      <th></th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <%@characters.each do |character|%>
+      <tr>
+	    <td><h3><%= character.name %></h3></td>
+	    <td><%= link_to(image_tag character.avatar.url(:thumb) ) if character.avatar? %></td>
+	    <td><%= link_to 'Show', admins_character_path([character]), class: "btn btn-sm btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', admins_users_path, class: "btn btn-default" %>

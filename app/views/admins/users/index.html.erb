@@ -1,0 +1,24 @@
+<h2>All users of my mini RPG game editor.</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <%@users.each do |user|%>
+      <tr>
+	    <td><%=user.username%></td>
+	    <td><%=user.email%></td>
+	    <td>
+	      <%= link_to 'Show', admins_user_path([user]), class: "btn btn-sm" %>
+          <%= link_to 'Delete', admins_user_path([user]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

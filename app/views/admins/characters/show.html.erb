@@ -1,0 +1,24 @@
+<h3><%= @character.name %></h3></br>
+<%= link_to(image_tag @character.avatar.url(:thumb) ) if @character.avatar? %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Skill name</th>
+      <th>Skill value</th>
+      <th>Skill icon</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <%@skills.each do |skill|%>
+      <tr>
+        <td><h4><%= skill.name %></h4></td>
+        <td><%= skill.value %></td>
+        <td><%= link_to(image_tag skill.icon.url(:thumb) ) if skill.icon? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', admins_user_path([@character.user]), class: "btn btn-sm btn-default" %>
+<%= link_to 'Delete', admins_character_path([@character]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
