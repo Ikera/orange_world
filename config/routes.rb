@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
-  get 'welcome/info'
+
+  namespace "admins" do
+    resources :users, :characters
+  end
 
   resources :characters do
     resources :skills
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  # get 'welcome/info'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
