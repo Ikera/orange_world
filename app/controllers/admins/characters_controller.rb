@@ -2,6 +2,8 @@ class Admins::CharactersController < ApplicationController
   before_action :set_character, only: [:show, :destroy]
   before_action :authenticate_admin!
 
+  layout 'admins'
+
 	def show 
 	  @skills = @character.skills
 	end
