@@ -1,6 +1,6 @@
 class Admins::UsersController < ApplicationController
   before_action :all_users, only: [:index, :destroy]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!
 
   layout 'admins'
@@ -10,6 +10,18 @@ class Admins::UsersController < ApplicationController
 
   def show  
     @characters = @user.characters
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to(admins_users_path)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

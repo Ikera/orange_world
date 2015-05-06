@@ -14,8 +14,12 @@ Rails.application.routes.draw do
     root "characters#index", as: "authenticated_root"
   end
 
-  root "welcome#info", as: :user_root_path 
+  root "welcome#info"
+
   root "admins/users#index", as: :admin_root_path
+ 
+  
+   
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

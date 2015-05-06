@@ -16,7 +16,8 @@
 	    <td><%=user.email%></td>
 	    <td>
 	      <%= link_to 'Show', admins_user_path([user]), class: "btn btn-sm" %>
-          <%= link_to 'Delete', admins_user_path([user]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm" %>
+        <%= link_to 'Edit', edit_admins_user_path([user]), class: "btn btn-sm" %>
+        <%= link_to 'Delete', admins_user_path([user]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm" %>
         </td>
       </tr>
     <% end %>
