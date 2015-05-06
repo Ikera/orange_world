@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace "admins" do
-    resources :users, :characters
+    resources :users, :characters, :skills
   end
 
   resources :characters do

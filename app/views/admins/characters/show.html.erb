@@ -7,6 +7,7 @@
       <th>Skill name</th>
       <th>Skill value</th>
       <th>Skill icon</th>
+      <th></th>
     </tr>
   </thead>
  
@@ -16,6 +17,8 @@
         <td><h4><%= skill.name %></h4></td>
         <td><%= skill.value %></td>
         <td><%= link_to(image_tag skill.icon.url(:thumb) ) if skill.icon? %></td>
+        <td><%= link_to 'Delete skill', admins_skill_path(skill), method: :delete, data: {confirm: 'Are you sure?'} %> | 
+            <%= link_to 'Edit skill', edit_admins_skill_path(skill) %></td>
       </tr>
     <% end %>
   </tbody>
