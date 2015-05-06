@@ -20,5 +20,6 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to 'Edit', edit_admins_character_path([@character.user]), class: "btn btn-sm btn-default" %>
 <%= link_to 'Back', admins_user_path([@character.user]), class: "btn btn-sm btn-default" %>
 <%= link_to 'Delete', admins_character_path([@character]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>

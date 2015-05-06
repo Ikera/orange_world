@@ -1,5 +1,5 @@
 class Admins::CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :destroy]
+  before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!
 
   layout 'admins'
@@ -7,6 +7,20 @@ class Admins::CharactersController < ApplicationController
 	def show 
 	  @skills = @character.skills
 	end
+
+  def edit
+
+  end
+
+  def update
+    respond_to do |format|
+      if @character.update(character_params)
+        format.html { redirect_to admins_user_url([@character.user]), notice: 'Character was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
 	def destroy
     @character.destroy
@@ -19,7 +33,7 @@ class Admins::CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
-  def char_params
-    params.require(:char).permit(:name, :avatar, :char_id)
+  def character_params
+    params.require(:character).permit(:name, :avatar, :character_id)
   end	
 end
