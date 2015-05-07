@@ -3,5 +3,4 @@ FactoryGirl.define do
     email "baki@baki.org"
     password "bakibaki"
   end
-
 end
