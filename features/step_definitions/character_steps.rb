@@ -79,6 +79,6 @@ When(/^I click Submit button$/) do
   click_button('Submit')
 end
 
-Then(/^I can see (.*?)$/) do |text|
+Then(/^I can see "(.*?)"$/) do |text|
   page.should have_content(text)
 end
