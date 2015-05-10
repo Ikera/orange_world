@@ -1,6 +1,7 @@
 <h3><%= @character.name %></h3></br>
 <%= link_to(image_tag @character.avatar.url(:thumb) ) if @character.avatar? %>
 
+
 <table class="table">
   <thead>
     <tr>
@@ -26,3 +27,5 @@
 <%= link_to 'Edit', edit_admins_character_path([@character]), class: "btn btn-sm btn-default" %>
 <%= link_to 'Back', admins_user_path([@character.user]), class: "btn btn-sm btn-default" %>
 <%= link_to 'Delete', admins_character_path([@character]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+<%= link_to 'Create new skill', new_admins_skill_path(@skill), class: "btn btn-sm btn-default" %>
+

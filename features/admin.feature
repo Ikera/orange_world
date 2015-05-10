@@ -68,5 +68,21 @@ Feature: Admin
      Given Admin in particular character page
      When I click on Edit skill link
      Then I am on the edit skill page
-     And I change skill charactersistics
+     And I change skill characteristics
      Then I can see skill with changed characteristics
+
+  @javascript
+  Scenario: Creating an User
+    Given an Admin
+    When I click on Create new User link
+    Then I am on the page for creating users
+    And when I fill in users details
+    Then I can see new skill
+
+  @javascript
+  Scenario: Creating character
+     Given Admin on the users characters page
+     When I click on Create new character link
+     Then I am on the page for creating characters
+     And when I fill in characters details
+     Then I can see new character

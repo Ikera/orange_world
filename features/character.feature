@@ -13,7 +13,6 @@ Feature: Characters
     And I push sign up button
     Then I am log in as user 
     
-  @wip
   @javascript
   Scenario: Make a character
     Given an sign up User

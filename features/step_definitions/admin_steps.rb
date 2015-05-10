@@ -165,7 +165,7 @@ Then(/^I am on the edit skill page$/) do
    visit('/admins/skills/1/edit')
 end
 
-Then(/^I change skill charactersistics$/) do
+Then(/^I change skill characteristics$/) do
   fill_in('Name', :with => 'Speed')
   click_button('Submit')
 end
@@ -173,4 +173,53 @@ end
 Then(/^I can see skill with changed characteristics$/) do
   visit('/admins/characters/1')
   page.should have_content('Speed')
+end
+
+# Creating user
+
+When(/^I click on Create new User link$/) do
+   click_link('Create new User')
+end
+
+Then(/^I am on the page for creating users$/) do
+  visit('/admins/users/new')
+end
+
+Then(/^when I fill in users details$/) do
+  fill_in('Username', :with => 'Ikera 2')
+  fill_in('Email', :with => 'baki@baki.org')
+  fill_in('Password', :with => 'bakibaki')
+  fill_in('Password confirmation', :with => 'bakibaki')
+  click_button('Create User')
+end
+
+Then(/^I can see new skill$/) do
+  visit('/admins/users')
+  page.should have_content('Ikera 2')
+end
+
+# Creating characters
+
+When(/^I click on Create new character link$/) do
+  click_link('Create new character')
+end
+
+Then(/^I am on the page for creating characters$/) do
+  visit('/admins/characters/new')
+end
+
+Then(/^when I fill in characters details$/) do
+  fill_in('User', :with => '1')
+  fill_in('Name', :with => 'Knight')
+  file_to_upload = File.join(Rails.root, 'features', 'support', 'images', 'thumb_warrior.jpg')
+    if file_to_upload.match(/^C:\//)
+      file_to_upload.gsub!(/\//, "\\")
+    end
+  attach_file('Avatar', file_to_upload)
+  click_button('Submit')
+end
+
+Then(/^I can see new character$/) do
+  visit('/admins/users/1')
+  page.should have_content('Knight')
 end

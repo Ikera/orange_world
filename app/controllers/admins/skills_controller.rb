@@ -4,6 +4,19 @@ class Admins::SkillsController < ApplicationController
 
   layout 'admins'
 
+  def new
+    @skill = Skill.new
+  end
+
+  def create
+    @skill = Skill.create(skill_params)
+    if @skill.save
+      redirect_to admins_character_url([@skill.character])
+    else
+      render 'new'
+    end
+  end
+
   def destroy
     @skill.destroy
     redirect_to admins_character_url(@skill.character), notice: 'Skill was successfully destroyed.'
@@ -15,7 +28,7 @@ class Admins::SkillsController < ApplicationController
   def update
      respond_to do |format|
       if @skill.update(skill_params)
-        format.html { redirect_to admins_character_url([@skill.character.user]), notice: 'Skill was successfully updated.' }
+        format.html { redirect_to admins_character_url([@skill.character]), notice: 'Skill was successfully updated.' }
       else
         format.html { render :edit }
       end

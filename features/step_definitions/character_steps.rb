@@ -63,10 +63,11 @@ When(/^I enter name "(.*?)"$/) do |name|
 end
 
 When(/^I click on Avatar$/) do
- # document.getElementById("character_avatar")
   file_to_upload = File.join(Rails.root, 'features', 'support', 'images', 'thumb_warrior.jpg')
   "C:/Users/Jelena/test_app/orange_world/features/support/images/thumb_warrior.jpg"
-  
+    if file_to_upload.match(/^C:\//)
+      file_to_upload.gsub!(/\//, "\\")
+    end
   attach_file('Avatar', file_to_upload)
 end
 
