@@ -4,6 +4,23 @@ class Admins::CharactersController < ApplicationController
 
   layout 'admins'
 
+  def index
+    @characters = Character.all
+  end
+
+  def new
+    @character = Character.new
+  end
+
+  def create
+    @character = Character.create(character_params)
+    if @character.save
+      redirect_to admins_user_path(:id => [@character.user])
+    else
+      render 'new'
+    end
+  end
+
 	def show 
 	  @skills = @character.skills
 	end
@@ -34,6 +51,6 @@ class Admins::CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :avatar, :character_id)
+    params.require(:character).permit(:name, :avatar, :character_id, :user_id)
   end	
 end

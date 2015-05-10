@@ -80,3 +80,97 @@ end
 Then(/^I can see character skill named "(.*?)"$/) do |skill|
   page.should have_content(skill)
 end
+
+# Deleting users
+
+When(/^I click on Delete link$/) do
+  click_link('Delete')
+end
+
+When(/^I confirm with ok in alert window$/) do
+  page.driver.browser.switch_to.alert.accept
+end
+
+
+Then(/^I do not see user named Baki$/) do
+ page.should have_no_content('Baki')
+end
+
+# Deleting characters
+
+Given(/^Admin in particular character page$/) do
+ steps %{
+  Given Admin on the users characters page
+  When I click on show button
+  Then I can see character skill named "Intellect"
+ }
+end
+
+Then(/^I do not see character named Warrior$/) do
+  page.should have_no_content('Warrior')
+end
+
+# Deleting skills
+
+Then(/^I do not see skill named Intellect$/) do
+  page.should have_no_content('Intellect')
+end
+
+# Editing users
+
+When(/^I click on Edit link$/) do
+  click_link('Edit')
+end
+
+Then(/^I am on the edit user page$/) do
+  visit('/admins/users/1/edit')
+end
+
+Then(/^I change users personal informations$/) do
+  fill_in('Username', :with => 'Ikera 2')
+  fill_in('Email', :with => 'baki@baki.org')
+  fill_in('Password', :with => 'bakibaki')
+  fill_in('Password confirmation', :with => 'bakibaki')
+  click_button('Edit')
+end
+
+Then(/^I can see user with changed personal infornations$/) do
+  visit admins_users_path
+  page.should have_content('Ikera 2')
+end
+
+# Editing characters
+
+Then(/^I am on the edit character page$/) do
+  visit('/admins/characters/1/edit')
+end
+
+Then(/^I change character personal informations$/) do
+  fill_in('Name', :with => 'Warrior 2')
+  click_button('Submit')
+end
+
+Then(/^I can see character with changed personal informations$/) do
+  visit('/admins/users/1')
+  page.should have_content('Warrior 2')
+end
+
+# Editing skills
+
+When(/^I click on Edit skill link$/) do
+  click_link('Edit skill')
+end
+
+Then(/^I am on the edit skill page$/) do
+   visit('/admins/skills/1/edit')
+end
+
+Then(/^I change skill charactersistics$/) do
+  fill_in('Name', :with => 'Speed')
+  click_button('Submit')
+end
+
+Then(/^I can see skill with changed characteristics$/) do
+  visit('/admins/characters/1')
+  page.should have_content('Speed')
+end
